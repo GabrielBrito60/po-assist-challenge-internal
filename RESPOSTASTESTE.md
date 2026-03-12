@@ -28,6 +28,26 @@ Resposta :
 Resumindo :
 QR CODE NA TELA DO CAIXA > CLIENTE ESCANEAR E EFETUAR O PAGAMENTO > COMUNICAÇÃO BANCO E SHIPAY > STATUS PAGAMENTO APROVADO VIA PDV E PAINEL SHIPAY
 
+```mermaid
+sequenceDiagram
+    participant Comprador
+    participant Frente de Caixa (PDV)
+    participant Shipay
+    participant PSP
+
+    Comprador->>Frente de Caixa (PDV): Quero pagar com Pix
+    Frente de Caixa (PDV)->>Shipay: Gera QR Code
+    Shipay->>PSP: Gera cobranca
+    PSP->>Shipay: Cobranca gerada
+    Shipay->>Frente de Caixa (PDV): QR Code + Pix Copia e Cola
+    
+    Frente de Caixa (PDV)->>Comprador: Exibe QR Code na tela
+    Comprador->>PSP: Escaneia e efetua o pagamento
+    PSP->>Shipay: Comunicacao banco e Shipay
+    Shipay->>Frente de Caixa (PDV): Status Pagamento Aprovado via PDV e Painel
+```
+
+
 ## 4. As seguintes descrições das APIs da Shipay constam na nossa documentação oficial. Leia-as atentamente:
 
 **i. API POST /pdvauth**
