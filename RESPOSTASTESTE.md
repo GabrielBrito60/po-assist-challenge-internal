@@ -5,11 +5,26 @@
 ---
 
 ## 1. O sistema de PDV MaxSystem já está integrado às APIs da Shipay e já fornece o serviço de Pix para pagamento imediato para seus clientes. O responsável do sistema de PDV MaxSystem te pergunta sobre o que é preciso para que ele possa fornecer também Boleto Híbrido para seus clientes. Como você responderia?
+Resposta : Primeiramente verificaria com ele se ele é somente PDV ou se possui ERP também, pois para possuir integração com bolepix é necessário ele ser um ERP e explicaria o processo de como se tornar um, em seguida verificar qual seu PSP(Banco), pois ainda não temos integração com todos, informar e oferecer bancos que possuímos integração, após isso verificar com ele referente taxas(juntamente time de parcerias) e prosseguir com a implementação e API de conciliação.
 
 ## 2. Descreva brevemente todos os produtos que a Shipay disponibiliza para os parceiros, citando casos de uso para cada um dos produtos.  
+Resposta :
+ -  Pix instantâneo QR CODE / cópia - Disponibilidade para vendas físicas ou ecommerce através de PDVs, totens, sites, aplicativos etc..
+
+ - Pix automático - Disponibilidade para pagamentos recorrentes via Pix sem necessidade de ficar gerando a cobrança todo mês
+  
+ - Bolepix(boleto híbrido) - disponibilidade para geração de pagamentos mensais ou cobranças, com opção de pagamento via QR CODE ou código de barras comum, agilizando o pagamento caso seja realizado em Pix e mais barato que o pagamento via boleto comum para o ERP.
+  
+-  Cash in & cash out : Necessidade de ter pagamentos entrando e saindo também como uma espécie de conta bolsão
+-  Duplicata escritural : Prevista para 2027 caso alguma empresa deseje "adiantar" os valores recebiveis futuros
+Obs : há outros complementos como semi produtos : 
+Painel Shipay para visualização de pagamentos, Pix com vencimento e outros meios também.
+
 
 ## 3. O diagrama de sequência abaixo ilustra o fluxo transacional entre PDV, Shipay e PSP. Descreva com suas palavras o que falta nessa imagem para que o comprador saia da loja com sua compra paga via Pix (se preferir, conclua o desenho).
 ![image](https://github.com/shipay-pag/po-assist-challenge-internal/assets/59707512/8519c0aa-b092-462b-ac25-58865315d21c)
+Resposta : 
+   Falta o cliente realizar escanear o QR CODE e realizar o pagamento em seu aplicativo do banco, após isso é feito a comunicação entre Shipay e o banco confirmando a liquidação, A Shipay altera o status para aprovado e mostra a comprovação do pagamento no seu pdv e via painel Shipay.
 
 ## 4. As seguintes descrições das APIs da Shipay constam na nossa documentação oficial. Leia-as atentamente:
 
@@ -84,8 +99,11 @@ IMPORTANTE: As consultas devem ser feitas com intervalos de, no mínimo, 2 segun
 
 
 ### Considerando o exposto, você sugeriria alguma melhoria para o sistema de PDV que desenvolveu esta integração? Explique.
+Resposta :
+Está gerando tokens a cada segundo, isso pode causar sobrecarga desnecessária e acabar com o limitador da API conhecido por rate limit, até mesmo impactos na tela de pagamentos futuros e travamentos.
 
----
+O "Get order" está incorreto, em nossa API é orientada ser efetuada com intervalos de 2 segundos no mínimo, na imagem mostra intervalos de apenas 1, causando novamente o mesmo impacto.
+ Orientaria o mesmo verificar essas partes acima comentadas e regularizar, pois serão prejudiciais a longa escala.
 
 ## 5. Durante um dia normal de trabalho, você se depara com as seguintes demandas no mesmo instante:
 
@@ -174,3 +192,15 @@ isso está atrasando nossa integração, podem verificar, por favor?
 ---
 
 ### Considerando a situação, em qual ordem você priorizaria as atividades? Por que? 
+Resposta : 
+Focaria na urgência em primeiro lugar e faria na seguinte ordem :
+
+1 - V : Erro 503 é um erro geral da API, então se não for resolvido todos os outros parceiros vão entrar em contato e gerar uma demanda gigante, além de que pode solucionar os outros problemas dos outros
+
+2 - I : É um erro técnico de transação qual pode impactar toda a homologação com o respectivo parceiro
+
+3 - IV : Erro técnico, apenas na etapa cadastral( menos urgência que o acima)
+
+4 - III : É importante o cadastro do cliente mas menos importante que uma urgência
+
+5 - II : Perguntas somente, qual não é necessário tamanha urgência mas é importante
