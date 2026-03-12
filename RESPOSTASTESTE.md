@@ -19,6 +19,8 @@ Resposta :
 -  Duplicata escritural : Prevista para 2027 caso alguma empresa deseje "adiantar" os valores recebiveis futuros
 Obs : há outros complementos como semi produtos : 
 Painel Shipay para visualização de pagamentos, Pix com vencimento,arquivo de vendas e outros meios também.
+Pix Saque: você faz um Pix para o estabelecimento e recebe todo o valor em dinheiro.
+Pix Troco: você paga uma compra com Pix maior que o valor da compra e recebe a diferença em dinheiro.
 
 
 ## 3. O diagrama de sequência abaixo ilustra o fluxo transacional entre PDV, Shipay e PSP. Descreva com suas palavras o que falta nessa imagem para que o comprador saia da loja com sua compra paga via Pix (se preferir, conclua o desenho).
