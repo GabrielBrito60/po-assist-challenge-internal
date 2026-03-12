@@ -26,7 +26,7 @@ Painel Shipay para visualização de pagamentos, Pix com vencimento,arquivo de v
 Resposta : 
    Falta o PDV disponibilizar o QR CODE na tela, cliente escanear o QR CODE e realizar o pagamento em seu aplicativo do banco, após isso é feito a comunicação entre Shipay e o banco confirmando a liquidação, A Shipay altera o status para aprovado e mostra a comprovação do pagamento no seu pdv e via painel Shipay.
 Resumindo :
-QR CODE NA TELA DO CAIXA > CLIENTE ESCANEAR E EFETUAR O PAGAMENTO > COMUNICAÇÃO BANCO E SHIPAY > STATUS PAGAMENTO APROVADO VIA PDV E PAINEL SHIPAY
+QR CODE NA TELA DO CAIXA > CLIENTE ESCANEAR E EFETUAR O PAGAMENTO > COMUNICAÇÃO BANCO E SHIPAY > STATUS PAGAMENTO APROVADO VIA PDV E PAINEL SHIPAY> COMPROVAÇÃO PAGAMENTO PARA O CLIENTE
 
 ```mermaid
 sequenceDiagram
@@ -45,6 +45,8 @@ sequenceDiagram
     Comprador->>PSP: Escaneia e efetua o pagamento
     PSP->>Shipay: Comunicacao banco e Shipay
     Shipay->>Frente de Caixa (PDV): Status Pagamento Aprovado via PDV e Painel
+    Frente de Caixa (PDV)->>Comprador: Comprovacao de pagamento para o cliente
+```
 ```
 
 
