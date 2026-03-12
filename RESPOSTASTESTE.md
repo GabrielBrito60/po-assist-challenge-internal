@@ -220,7 +220,7 @@ isso está atrasando nossa integração, podem verificar, por favor?
 
 ### Considerando a situação, em qual ordem você priorizaria as atividades? Por que?
 
-**Resposta : 
+Resposta : 
 Focaria na urgência em primeiro lugar e faria na seguinte ordem :
 
 1 - V : Erro 503 é um erro geral da API, então se não for resolvido todos os outros parceiros vão entrar em contato e gerar uma demanda gigante, além de que pode solucionar os outros problemas dos outros
@@ -232,4 +232,3 @@ Focaria na urgência em primeiro lugar e faria na seguinte ordem :
 4 - III : É importante o cadastro do cliente mas menos importante que uma urgência
 
 5 - II : Perguntas somente, qual não é necessário tamanha urgência mas é importante
-**
