@@ -5,26 +5,28 @@
 ---
 
 ## 1. O sistema de PDV MaxSystem já está integrado às APIs da Shipay e já fornece o serviço de Pix para pagamento imediato para seus clientes. O responsável do sistema de PDV MaxSystem te pergunta sobre o que é preciso para que ele possa fornecer também Boleto Híbrido para seus clientes. Como você responderia?
-Resposta : Primeiramente verificaria com ele se ele é somente PDV ou se possui ERP também, pois para possuir integração com bolepix é necessário ele ser um ERP e explicaria o processo de como se tornar um, em seguida verificar qual seu PSP(Banco), pois ainda não temos integração com todos, informar e oferecer bancos que possuímos integração, após isso verificar com ele referente taxas(juntamente time de parcerias) e prosseguir com a implementação e API de conciliação.
+Resposta : Primeiramente verificaria com ele se ele é somente PDV ou se possui ERP também pois o ERP possui um processo mais robusto de contas a pagar, pois para possuir integração com bolepix é necessário ele ser um ERP e após isso caso seja. prosseguir com a implementação e API de conciliação.
 
 ## 2. Descreva brevemente todos os produtos que a Shipay disponibiliza para os parceiros, citando casos de uso para cada um dos produtos.  
 Resposta :
- -  Pix instantâneo QR CODE / cópia - Disponibilidade para vendas físicas ou ecommerce através de PDVs, totens, sites, aplicativos etc..
+ -  Pix instantâneo QR CODE / cópia e cola / impresso- Disponibilidade para vendas físicas ou ecommerce através de PDVs, totens, sites, aplicativos etc..
 
  - Pix automático - Disponibilidade para pagamentos recorrentes via Pix sem necessidade de ficar gerando a cobrança todo mês
   
- - Bolepix(boleto híbrido) - disponibilidade para geração de pagamentos mensais ou cobranças, com opção de pagamento via QR CODE ou código de barras comum, agilizando o pagamento caso seja realizado em Pix e mais barato que o pagamento via boleto comum para o ERP.
+ - Bolepix(boleto híbrido) - disponibilidade para geração de pagamentos mensais ou cobranças, com opção de pagamento via QR CODE ou código de barras comum, agilizando o pagamento caso seja realizado em Pix e mais barato que o pagamento via boleto comum para o ERP, efetuando o pagamento através de um, anula o outro.
   
--  Cash in & cash out : Necessidade de ter pagamentos entrando e saindo também como uma espécie de conta bolsão
+-  Cash in & cash out : Necessidade de ter pagamentos entrando e saindo também como uma espécie de conta bolsão ou split que não possuimos
 -  Duplicata escritural : Prevista para 2027 caso alguma empresa deseje "adiantar" os valores recebiveis futuros
 Obs : há outros complementos como semi produtos : 
-Painel Shipay para visualização de pagamentos, Pix com vencimento e outros meios também.
+Painel Shipay para visualização de pagamentos, Pix com vencimento,arquivo de vendas e outros meios também.
 
 
 ## 3. O diagrama de sequência abaixo ilustra o fluxo transacional entre PDV, Shipay e PSP. Descreva com suas palavras o que falta nessa imagem para que o comprador saia da loja com sua compra paga via Pix (se preferir, conclua o desenho).
 ![image](https://github.com/shipay-pag/po-assist-challenge-internal/assets/59707512/8519c0aa-b092-462b-ac25-58865315d21c)
 Resposta : 
-   Falta o cliente realizar escanear o QR CODE e realizar o pagamento em seu aplicativo do banco, após isso é feito a comunicação entre Shipay e o banco confirmando a liquidação, A Shipay altera o status para aprovado e mostra a comprovação do pagamento no seu pdv e via painel Shipay.
+   Falta o PDV disponibilizar o QR CODE na tela, cliente escanear o QR CODE e realizar o pagamento em seu aplicativo do banco, após isso é feito a comunicação entre Shipay e o banco confirmando a liquidação, A Shipay altera o status para aprovado e mostra a comprovação do pagamento no seu pdv e via painel Shipay.
+Resumindo :
+QR CODE NA TELA DO CAIXA > CLIENTE ESCANEAR E EFETUAR O PAGAMENTO > COMUNICAÇÃO BANCO E SHIPAY > STATUS PAGAMENTO APROVADO VIA PDV E PAINEL SHIPAY
 
 ## 4. As seguintes descrições das APIs da Shipay constam na nossa documentação oficial. Leia-as atentamente:
 
