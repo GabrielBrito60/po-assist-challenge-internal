@@ -126,10 +126,10 @@ IMPORTANTE: As consultas devem ser feitas com intervalos de, no mínimo, 2 segun
 ### Considerando o exposto, você sugeriria alguma melhoria para o sistema de PDV que desenvolveu esta integração? Explique.
 **Resposta :**
 
-**Está gerando tokens a cada segundo, isso pode causar sobrecarga desnecessária e acabar com o limitador da API conhecido por rate limit, até mesmo impactos na tela de pagamentos futuros e travamentos.
+Está gerando tokens a cada segundo, isso pode causar sobrecarga desnecessária e acabar com o limitador da API conhecido por rate limit, até mesmo impactos na tela de pagamentos futuros e travamentos.
 
 O "Get order" está incorreto, em nossa API é orientada ser efetuada com intervalos de 2 segundos no mínimo, na imagem mostra intervalos de apenas 1, causando novamente o mesmo impacto.
- Orientaria o mesmo verificar essas partes acima comentadas e regularizar, pois serão prejudiciais a longa escala.**
+ Orientaria o mesmo verificar essas partes acima comentadas e regularizar, pois serão prejudiciais a longa escala.
  
 
 ## 5. Durante um dia normal de trabalho, você se depara com as seguintes demandas no mesmo instante:
