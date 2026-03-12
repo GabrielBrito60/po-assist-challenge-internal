@@ -47,7 +47,6 @@ sequenceDiagram
     Shipay->>Frente de Caixa (PDV): Status Pagamento Aprovado via PDV e Painel
     Frente de Caixa (PDV)->>Comprador: Comprovacao de pagamento para o cliente
 ```
-```
 
 
 ## 4. As seguintes descrições das APIs da Shipay constam na nossa documentação oficial. Leia-as atentamente:
@@ -123,11 +122,13 @@ IMPORTANTE: As consultas devem ser feitas com intervalos de, no mínimo, 2 segun
 
 
 ### Considerando o exposto, você sugeriria alguma melhoria para o sistema de PDV que desenvolveu esta integração? Explique.
-Resposta :
-Está gerando tokens a cada segundo, isso pode causar sobrecarga desnecessária e acabar com o limitador da API conhecido por rate limit, até mesmo impactos na tela de pagamentos futuros e travamentos.
+**Resposta :**
+
+**Está gerando tokens a cada segundo, isso pode causar sobrecarga desnecessária e acabar com o limitador da API conhecido por rate limit, até mesmo impactos na tela de pagamentos futuros e travamentos.
 
 O "Get order" está incorreto, em nossa API é orientada ser efetuada com intervalos de 2 segundos no mínimo, na imagem mostra intervalos de apenas 1, causando novamente o mesmo impacto.
- Orientaria o mesmo verificar essas partes acima comentadas e regularizar, pois serão prejudiciais a longa escala.
+ Orientaria o mesmo verificar essas partes acima comentadas e regularizar, pois serão prejudiciais a longa escala.**
+ 
 
 ## 5. Durante um dia normal de trabalho, você se depara com as seguintes demandas no mesmo instante:
 
@@ -215,8 +216,9 @@ isso está atrasando nossa integração, podem verificar, por favor?
 
 ---
 
-### Considerando a situação, em qual ordem você priorizaria as atividades? Por que? 
-Resposta : 
+### Considerando a situação, em qual ordem você priorizaria as atividades? Por que?
+
+**Resposta : 
 Focaria na urgência em primeiro lugar e faria na seguinte ordem :
 
 1 - V : Erro 503 é um erro geral da API, então se não for resolvido todos os outros parceiros vão entrar em contato e gerar uma demanda gigante, além de que pode solucionar os outros problemas dos outros
@@ -228,3 +230,4 @@ Focaria na urgência em primeiro lugar e faria na seguinte ordem :
 4 - III : É importante o cadastro do cliente mas menos importante que uma urgência
 
 5 - II : Perguntas somente, qual não é necessário tamanha urgência mas é importante
+**
